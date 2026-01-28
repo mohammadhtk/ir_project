@@ -8,7 +8,7 @@ def gap_encode(postings):
         gaps.append(postings[i] - postings[i - 1])
     return gaps
 
-
+os.getenv('POSTGRES_PORT', '5432')
 def gap_decode(gaps):
     postings = []
     total = 0

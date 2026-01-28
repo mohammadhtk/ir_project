@@ -1,3 +1,5 @@
+import os
+
 from indexer import load_documents, build_dictionary
 from vector_model import compute_all_tf, compute_idf
 from search import search
