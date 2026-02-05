@@ -1,6 +1,6 @@
 # src/query_expansion.py
 from typing import Dict
-from preprocessing import simple_preprocess
+from .preprocessing import simple_preprocess
 from typing import List
 def load_synonyms(file_path: str) -> Dict[str, List[str]]:
     synonyms = {}

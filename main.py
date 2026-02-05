@@ -8,13 +8,15 @@ from src.evaluate import run_evaluation
 from src.compression import compress_inverted_index  # شما قبلاً gap_encode را پیاده کردید
 
 # === CONFIGURATION ===
-DOC_DIR = "data"
+DOC_DIR = "docs"
 SYNONYM_FILE = "config/synonyms.txt"
+
 TEST_QUERIES = [
     {"query": "weather", "relevant_docs": ["doc1.txt", "doc2.txt"]},
     {"query": "morning", "relevant_docs": ["doc3.txt"]},
     {"query": "music", "relevant_docs": ["doc4.txt", "doc5.txt"]}
 ]
+
 TOP_K = 5
 OUTPUT_DIR = "output"
 
@@ -25,8 +27,9 @@ if __name__ == "__main__":
 
     print("📚 Building dictionary and inverted index...")
     dictionary = build_dictionary(documents)
-    inverted_index = build_inverted_index(documents, doc_ids)
-    compressed_index = compress_inverted_index(inverted_index)  # استفاده از کد فشرده‌سازی شما
+    inverted_index = build_inverted_index(documents)  # CHANGED: حذف doc_ids
+
+    compressed_index = compress_inverted_index(inverted_index)
 
     print("📊 Computing TF-IDF...")
     docs_tf = compute_all_tf(documents)

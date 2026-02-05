@@ -10,10 +10,10 @@ def build_dictionary(documents: Dict[int, List[str]]) -> Dict[str, int]:
             dictionary[term] += 1
     return dict(dictionary)
 
-def build_inverted_index(documents: Dict[int, List[str]], doc_ids: List[str]) -> Dict[str, List[str]]:
+def build_inverted_index(documents: Dict[int, List[str]]) -> Dict[str, List[int]]:
     """ساخت نمایه معکوس: واژه → [docID1, docID2, ...]"""
     inverted_index = defaultdict(list)
     for doc_id, tokens in documents.items():
         for term in set(tokens):
-            inverted_index[term].append(doc_ids[doc_id])  # ذخیره نام فایل به جای عدد
+            inverted_index[term].append(doc_id)  # should be int
     return dict(inverted_index)

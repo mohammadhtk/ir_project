@@ -1,5 +1,6 @@
 # src/evaluate.py
 from typing import List, Tuple, Dict, Set
+from .query_expansion import expand_query
 import json
 
 def precision_at_k(ranked_results: List[Tuple[str, float]], relevant_docs: Set[str], k: int) -> float:
