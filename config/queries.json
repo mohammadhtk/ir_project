@@ -1,0 +1,14 @@
+[
+  {
+    "query": "weather",
+    "relevant_docs": ["doc1.txt", "doc2.txt"]
+  },
+  {
+    "query": "morning",
+    "relevant_docs": ["doc3.txt"]
+  },
+  {
+    "query": "music",
+    "relevant_docs": ["doc4.txt", "doc5.txt"]
+  }
+]
