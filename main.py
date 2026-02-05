@@ -6,16 +6,18 @@ from src.search import vector_space_search
 from src.query_expansion import load_synonyms
 from src.evaluate import run_evaluation
 from src.compression import compress_inverted_index  # شما قبلاً gap_encode را پیاده کردید
+import json
 
 # === CONFIGURATION ===
 DOC_DIR = "docs"
 SYNONYM_FILE = "config/synonyms.txt"
 
-TEST_QUERIES = [
-    {"query": "weather", "relevant_docs": ["doc1.txt", "doc2.txt"]},
-    {"query": "morning", "relevant_docs": ["doc3.txt"]},
-    {"query": "music", "relevant_docs": ["doc4.txt", "doc5.txt"]}
-]
+# TEST_QUERIES = [
+#     {"query": "weather", "relevant_docs": ["doc1.txt", "doc2.txt"]},
+#     {"query": "morning", "relevant_docs": ["doc3.txt"]},
+#     {"query": "music", "relevant_docs": ["doc4.txt", "doc5.txt"]}
+# ]
+
 
 TOP_K = 5
 OUTPUT_DIR = "output"
@@ -37,6 +39,9 @@ if __name__ == "__main__":
 
     print("🔍 Loading synonyms...")
     synonyms = load_synonyms(SYNONYM_FILE)
+
+    with open("config/queries.json", "r", encoding="utf-8") as f:
+        TEST_QUERIES = json.load(f)
 
     print("📈 Running evaluation...")
     run_evaluation(
