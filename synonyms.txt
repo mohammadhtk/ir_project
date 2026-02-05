@@ -1,0 +1,6 @@
+# Format: word -> synonym1, synonym2, ...
+search -> find, look up, query
+document -> file, text, paper
+retrieval -> search, recovery, finding
+information -> data, knowledge, facts
+system -> framework, platform, tool
