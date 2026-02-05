@@ -1,0 +1,57 @@
+Information Retrieval - Final Evaluation Report
+============================================================
+
+Query: weather
+Relevant Docs: ['doc1.txt', 'doc2.txt']
+
+Top-5 BEFORE Expansion:
+  1. Doc1.txt | 0.4654
+  2. Doc5.txt | 0.2380
+  3. Doc10.txt | 0.0000
+  4. Doc2.txt | 0.0000
+  5. Doc3.txt | 0.0000
+
+Top-5 AFTER Expansion:
+  1. Doc1.txt | 0.4654
+  2. Doc5.txt | 0.2380
+  3. Doc10.txt | 0.0000
+  4. Doc2.txt | 0.0000
+  5. Doc3.txt | 0.0000
+
+------------------------------------------------------------
+Query: morning
+Relevant Docs: ['doc3.txt']
+
+Top-5 BEFORE Expansion:
+  1. Doc4.txt | 0.1209
+  2. Doc1.txt | 0.0000
+  3. Doc10.txt | 0.0000
+  4. Doc2.txt | 0.0000
+  5. Doc3.txt | 0.0000
+
+Top-5 AFTER Expansion:
+  1. Doc4.txt | 0.1209
+  2. Doc1.txt | 0.0000
+  3. Doc10.txt | 0.0000
+  4. Doc2.txt | 0.0000
+  5. Doc3.txt | 0.0000
+
+------------------------------------------------------------
+Query: music
+Relevant Docs: ['doc4.txt', 'doc5.txt']
+
+Top-5 BEFORE Expansion:
+  1. Doc8.txt | 0.5012
+  2. Doc6.txt | 0.3472
+  3. Doc9.txt | 0.0448
+  4. Doc1.txt | 0.0000
+  5. Doc10.txt | 0.0000
+
+Top-5 AFTER Expansion:
+  1. Doc8.txt | 0.5012
+  2. Doc6.txt | 0.3472
+  3. Doc9.txt | 0.0448
+  4. Doc1.txt | 0.0000
+  5. Doc10.txt | 0.0000
+
+------------------------------------------------------------
