@@ -5,6 +5,8 @@ from src.vector_model import compute_all_tf, compute_idf
 from src.search import vector_space_search
 from src.query_expansion import load_synonyms
 from src.evaluate import run_evaluation
+from src.search_compressed import compressed_vector_space_search
+from src.cli_logger import log_cli_query
 from src.compression import compress_inverted_index  # شما قبلاً gap_encode را پیاده کردید
 import json
 
@@ -43,11 +45,32 @@ if __name__ == "__main__":
     with open("config/queries.json", "r", encoding="utf-8") as f:
         TEST_QUERIES = json.load(f)
 
+    print("\n🔎 Interactive search (type 'exit' to quit)")
+    while True:
+        user_query = input("Query: ")
+        if user_query.lower() == "exit":
+            break
+
+        results = vector_space_search(
+            user_query,
+            inverted_index,
+            idf,
+            docs_tf,
+            doc_ids,
+            TOP_K
+        )
+
+        log_cli_query(user_query, results)
+        print("Save your query in output/cli_queries_log.txt")
+
+        for doc, score in results:
+            print(f"{doc} -> {score:.4f}")
+
     print("📈 Running evaluation...")
     run_evaluation(
         test_queries=TEST_QUERIES,
-        search_func=vector_space_search,
-        inverted_index=inverted_index,
+        search_func=compressed_vector_space_search, # CHANGED
+        inverted_index=compressed_index,
         idf=idf,
         docs_tf=docs_tf,
         doc_ids=doc_ids,
